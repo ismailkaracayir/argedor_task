@@ -1,0 +1,13 @@
+{
+    "welcome_message": "Welcome",
+    "goodbye_message": "Goodbye",
+
+    "firstScreen" : {
+   "global_avarege" : "Global Avarege",
+   "trend" : "Trend",
+   "technicals":"Technicals",
+   "transaction":"Transaction"
+
+    }
+    
+  }

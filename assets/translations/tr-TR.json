@@ -1,0 +1,13 @@
+{
+    "welcome_message": "Merhaba",
+    "goodbye_message": "Hoşçakal",
+
+    "firstScreen": {
+      "global_avarege": "Küresel Ortalama",
+      "trend": "Trend",
+      "technicals": "Teknikler",
+      "transaction": "İşlem"
+    }
+    
+
+}

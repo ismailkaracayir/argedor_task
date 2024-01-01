@@ -6,17 +6,19 @@ class CustomIconButton extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final BuildContext context;
+  final double iconSize;
 
   const CustomIconButton({
+    super.key,
     required this.onPressed,
     required this.icon,
     required this.context,
     this.iconColor = Colors.white,
+    this.iconSize = 30.0,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return InkWell(
       onTap: onPressed,
       child: AnimatedContainer(
@@ -27,7 +29,7 @@ class CustomIconButton extends StatelessWidget {
           children: [
             Icon(
               icon,
-              size: 30,
+              size: iconSize,
               color: iconColor,
             ),
           ],

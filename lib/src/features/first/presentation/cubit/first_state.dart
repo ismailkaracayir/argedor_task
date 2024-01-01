@@ -1,6 +1,11 @@
 part of 'first_cubit.dart';
 
-@immutable
-sealed class FirstState {}
+class FirstState extends Equatable {
+  final bool isFavorite;
+  const FirstState({this.isFavorite = true});
+    const FirstState.copyWith({bool? isFavorite}) : this(isFavorite: isFavorite ??  true );
 
-final class FirstInitial extends FirstState {}
+
+  @override
+  List<Object> get props => [isFavorite];
+}

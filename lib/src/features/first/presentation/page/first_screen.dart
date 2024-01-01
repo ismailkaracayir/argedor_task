@@ -1,5 +1,5 @@
-import 'package:argedor_task/src/constants/application_const.dart';
-import 'package:argedor_task/src/shared/utils/widgets/costum_icon_button.dart';
+import 'package:argedor_task/src/features/first/presentation/widgets/custom_appbar.dart';
+import 'package:argedor_task/src/features/first/presentation/widgets/custom_chart.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -9,53 +9,34 @@ class FirstScreen extends StatefulWidget {
   State<FirstScreen> createState() => _FirstScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+class _FirstScreenState extends State<FirstScreen>
+    with TickerProviderStateMixin {
+  late final TabController tabController;
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 3, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: theme.colorScheme.primary,
-        title: Center(
-          child: Column(
-            children: <Widget>[
-              Text(
-                ApplicationConstants.materialAppTitle,
-                style: theme.textTheme.titleLarge!.copyWith(
-                    color: theme.colorScheme.onSecondary, fontSize: 25),
-              ),
-              Text(
-                ApplicationConstants.materialAppSubTitle,
-                style: theme.textTheme.titleLarge!.copyWith(
-                    color: theme.colorScheme.onSecondary.withOpacity(0.5),
-                    fontSize: 15),
-              )
-            ],
-          ),
+        appBar: CustomAppBar(
+          tabController: tabController,
         ),
-        leading: CustomIconButton(
-            onPressed: () {}, icon: Icons.arrow_back, context: context),
-        actions: <Widget>[
-          CustomIconButton(
-              onPressed: () {},
-              icon: Icons.notification_add_outlined,
-              context: context),
-          CustomIconButton(
-              onPressed: () {},
-              icon: Icons.star,
-              iconColor: theme.colorScheme.onTertiary,
-              context: context),
-        ],
-      ),
-    );
+        body: TabBarView(
+          controller: tabController,
+          children: const <Widget>[
+            CustomChart(),
+            Center(
+              child: Text("Technicals"),
+            ),
+            Center(
+              child: Text("Transactions"),
+            ),
+          ],
+        ));
   }
 }
-  
-
-  //  IconButton(
-  //           onPressed: () {},
-  //           icon: Icon(
-  //             Icons.arrow_back,
-  //             color: theme.colorScheme.onSecondary,
-  //           )),
