@@ -21,9 +21,10 @@ class _CustomTabbarState extends State<CustomTabbar> {
 
     return TabBar(
       labelStyle: theme.textTheme.labelLarge,
+      indicatorWeight: 4,
       indicatorSize: TabBarIndicatorSize.tab,
       dividerColor: theme.colorScheme.shadow.withOpacity(0.5),
-      dividerHeight: 3,
+      dividerHeight: 4,
       unselectedLabelColor: theme.colorScheme.background,
       labelColor: theme.colorScheme.onPrimary,
       indicatorColor: theme.colorScheme.onPrimary,

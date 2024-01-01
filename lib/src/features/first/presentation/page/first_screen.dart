@@ -20,23 +20,23 @@ class _FirstScreenState extends State<FirstScreen>
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Scaffold(
-        appBar: CustomAppBar(
-          tabController: tabController,
-        ),
-        body: TabBarView(
-          controller: tabController,
-          children: const <Widget>[
-            CustomChart(),
-            Center(
-              child: Text("Technicals"),
+    return SafeArea(
+        top: false,
+        child: Scaffold(
+            appBar: CustomAppBar(
+              tabController: tabController,
             ),
-            Center(
-              child: Text("Transactions"),
-            ),
-          ],
-        ));
+            body: TabBarView(
+              controller: tabController,
+              children: const <Widget>[
+                CustomChart(),
+                Center(
+                  child: Text("Technicals"),
+                ),
+                Center(
+                  child: Text("Transactions"),
+                ),
+              ],
+            )));
   }
 }

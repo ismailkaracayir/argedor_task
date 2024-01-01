@@ -17,7 +17,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   State<CustomAppBar> createState() => _CustomAppBarState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(120.0);
+  Size get preferredSize => const Size.fromHeight(110.0);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
@@ -26,25 +26,24 @@ class _CustomAppBarState extends State<CustomAppBar> {
     final theme = Theme.of(context);
 
     return AppBar(
+        centerTitle: true,
         backgroundColor: theme.colorScheme.primary,
-        title: Center(
-          child: Column(
-            children: <Widget>[
-              Text(
-                ApplicationConstants.materialAppTitle,
-                style: theme.textTheme.titleLarge!.copyWith(
-                    color: theme.colorScheme.onSecondary,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                LocaleKeys.firstScreen_global_avarege.tr(),
-                style: theme.textTheme.titleLarge!.copyWith(
-                    color: theme.colorScheme.onSecondary.withOpacity(0.5),
-                    fontSize: 15),
-              )
-            ],
-          ),
+        title: Column(
+          children: <Widget>[
+            Text(
+              ApplicationConstants.materialAppTitle,
+              style: theme.textTheme.titleLarge!.copyWith(
+                  color: theme.colorScheme.onSecondary,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              LocaleKeys.firstScreen_global_avarege.tr(),
+              style: theme.textTheme.titleLarge!.copyWith(
+                  color: theme.colorScheme.onSecondary.withOpacity(0.5),
+                  fontSize: 12),
+            )
+          ],
         ),
         leading: CustomIconButton(
             onPressed: () {}, icon: Icons.arrow_back, context: context),
