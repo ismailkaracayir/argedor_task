@@ -25,25 +25,44 @@ class _ChartWidgetState extends State<ChartWidget> {
   Widget build(BuildContext context) {
     return BlocBuilder<FirstCubit, FirstState>(
       builder: (context, state) {
-        return Container(
-          height: context.height * 0.5,
-          width: context.width,
-          child: SfCartesianChart(
-            primaryXAxis: CategoryAxis(),
-            primaryYAxis: NumericAxis(minimum: 0, maximum: 100, interval: 10),
-            tooltipBehavior: _tooltip,
-            series: <CartesianSeries<ChartData, String>>[
-              CandleSeries<ChartData, String>(
-                dataSource: state.chartList,
-                xValueMapper: (ChartData data, _) => data.x,
-                highValueMapper: (ChartData data, _) => data.high,
-                lowValueMapper: (ChartData data, _) => data.low,
-                openValueMapper: (ChartData data, _) => data.open,
-                closeValueMapper: (ChartData data, _) => data.close,
-              )
-            ],
-          ),
-        );
+        if (state.chartList.isEmpty) {
+          return const CircularProgressIndicator();
+        } else {
+          return SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Container(
+              width: context.width,
+              height: context.height * 0.5,
+              child: SfCartesianChart(
+                primaryYAxis: const NumericAxis(
+                  majorGridLines: MajorGridLines(width: 0),
+                  minimum: 0,
+                  maximum: 100,
+                  interval: 10,
+                ),
+                primaryXAxis: CategoryAxis(
+                  majorGridLines: MajorGridLines(
+                      width: 1, color: Colors.white.withOpacity(0.3)),
+                ),
+                tooltipBehavior: _tooltip,
+                series: <CartesianSeries<ChartData, String>>[
+                  CandleSeries<ChartData, String>(
+                    animationDuration: 500,
+                    bullColor: Colors.green,
+                    bearColor: Colors.red,
+                    enableSolidCandles: true,
+                    dataSource: state.chartList,
+                    xValueMapper: (ChartData data, _) => data.x,
+                    highValueMapper: (ChartData data, _) => data.high,
+                    lowValueMapper: (ChartData data, _) => data.low,
+                    openValueMapper: (ChartData data, _) => data.open,
+                    closeValueMapper: (ChartData data, _) => data.close,
+                  )
+                ],
+              ),
+            ),
+          );
+        }
       },
     );
   }

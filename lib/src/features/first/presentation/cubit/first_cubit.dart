@@ -20,10 +20,8 @@ class FirstCubit extends Cubit<FirstState> {
   void loadInitialData() {
     var response = _useCase.loadData();
     response.listen((event) {
-      for (var element in event) {
-        print(element.low);
-      }
       emit(FirstState.copyWith(isFavorite: state.isFavorite, chartList: event));
+      print('State bildirildi');
     });
   }
 }
