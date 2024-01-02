@@ -1,3 +1,4 @@
+import 'package:argedor_task/injector.dart';
 import 'package:argedor_task/src/constants/application_const.dart';
 import 'package:argedor_task/src/features/first/presentation/cubit/first_cubit.dart';
 import 'package:argedor_task/src/features/first/presentation/page/first_screen.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await initializeGetIt();
   runApp(EasyLocalization(
       supportedLocales: LanguageManager.instance.supportedLocales,
       fallbackLocale: LanguageManager.instance.supportedLocales.first,
