@@ -1,5 +1,5 @@
 import 'package:argedor_task/src/features/first/presentation/widgets/custom_appbar.dart';
-import 'package:argedor_task/src/features/first/presentation/widgets/custom_chart.dart';
+import 'package:argedor_task/src/features/first/presentation/widgets/tabbar_view_trend.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -29,7 +29,7 @@ class _FirstScreenState extends State<FirstScreen>
             body: TabBarView(
               controller: tabController,
               children: const <Widget>[
-                CustomChart(),
+                TabBarViewTrend(),
                 Center(
                   child: Text("Technicals"),
                 ),
