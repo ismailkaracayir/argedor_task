@@ -14,10 +14,12 @@ class ChartWidget extends StatefulWidget {
 
 class _ChartWidgetState extends State<ChartWidget> {
   late TooltipBehavior _tooltip;
+  late TrackballBehavior _behavior;
   @override
   void initState() {
     super.initState();
-
+    _behavior = TrackballBehavior(
+        enable: true, activationMode: ActivationMode.singleTap);
     _tooltip = TooltipBehavior(enable: true);
   }
 
@@ -34,6 +36,7 @@ class _ChartWidgetState extends State<ChartWidget> {
               width: context.width,
               height: context.height * 0.5,
               child: SfCartesianChart(
+                trackballBehavior: _behavior,
                 primaryYAxis: const NumericAxis(
                   majorGridLines: MajorGridLines(width: 0),
                   minimum: 0,

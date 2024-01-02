@@ -1,5 +1,5 @@
 import 'package:argedor_task/src/constants/padding_const.dart';
-import 'package:argedor_task/src/features/first/presentation/widgets/chart.dart';
+import 'package:argedor_task/src/features/first/presentation/widgets/chart_widget.dart';
 import 'package:argedor_task/src/shared/utils/widgets/custom_double_text.dart';
 import 'package:argedor_task/src/shared/utils/extansions/device_size.dart';
 import 'package:argedor_task/src/shared/utils/widgets/custom_dropdown_button.dart';
